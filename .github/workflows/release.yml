@@ -63,7 +63,7 @@ jobs:
       - name: Publish the box to Vagrant Cloud
         run: >
           vagrant cloud publish
-          -s "Debian Vagrant box with Vagrant and VirtualBox for nested virtualization"
+          -s "Debian Vagrant box with Vagrant and VirtualBox for nested virtualization (github.com/dmotte/vagrant-vagrantbox)"
           --version-description "This version has been released automatically with GitHub Actions, commit ${{ github.sha }}"
           --no-private --release --force
           dmotte/vagrantbox "$(date +%Y.%m.%d.%H%M)" virtualbox package.box
