@@ -24,8 +24,10 @@
 
     - name: Install VirtualBox
       ansible.builtin.include_role: { name: oefenweb.virtualbox }
+      # noqa: var-naming[no-role-prefix]
       vars: { ansible_become: true }
 
     - name: Install Vagrant
       ansible.builtin.include_role: { name: dmotte.vagrant }
+      # noqa: var-naming[no-role-prefix]
       vars: { ansible_become: true }
