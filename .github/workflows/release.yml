@@ -17,6 +17,9 @@ on:
     # because it has to run after https://github.com/dmotte/vagrant-ansiblebox
     - cron: "30 05 27 * *"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
   release:
     # We use this virtual environment because it supports nested virtualization.
