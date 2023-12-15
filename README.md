@@ -36,6 +36,6 @@ and also install the `xauth` package inside the VM:
 
 ```ruby
 config.vm.provision "shell", inline: <<-SHELL
-    apt-get update && apt-get install -y xauth
+    apt-get update; apt-get install -y xauth
 SHELL
 ```
