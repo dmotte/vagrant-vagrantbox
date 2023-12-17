@@ -5,11 +5,7 @@
 
 :package: **Debian Vagrant box** with **Vagrant** and **VirtualBox** for nested virtualization.
 
-This project uses:
-
-- [dmotte/vagrant-ansiblebox](https://github.com/dmotte/vagrant-ansiblebox) as base box.
-- [Oefenweb/ansible-virtualbox](https://github.com/Oefenweb/ansible-virtualbox) to install _VirtualBox_ inside the VM.
-- [dmotte/ansible-role-vagrant](https://github.com/dmotte/ansible-role-vagrant) to install _Vagrant_ inside the VM.
+This project uses [dmotte/vagrant-ansiblebox](https://github.com/dmotte/vagrant-ansiblebox) as base box.
 
 > :package: This box is also on **Vagrant Cloud** as [`dmotte/vagrantbox`](https://app.vagrantup.com/dmotte/boxes/vagrantbox).
 
