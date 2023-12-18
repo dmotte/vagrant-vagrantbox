@@ -11,7 +11,7 @@ This project uses [dmotte/vagrant-ansiblebox](https://github.com/dmotte/vagrant-
 
 ## Usage
 
-To use this Vagrant box you can take inspiration from [the `test` folder of dmotte/vagrant-dockerbox](https://github.com/dmotte/vagrant-dockerbox/tree/main/test).
+See https://github.com/dmotte/misc/blob/main/examples/vagrant-ansible-provisioner for inspiration on how you could use this box.
 
 Remember to give your VM a decent amount of **RAM** and **CPU**, because it has to run other VMs inside.
 
