@@ -1,6 +1,6 @@
 # vagrant-vagrantbox
 
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/dmotte/vagrant-vagrantbox/release.yml?branch=main&logo=github&style=flat-square)](https://github.com/dmotte/vagrant-vagrantbox/actions)
+[![GitHub main workflow](https://img.shields.io/github/actions/workflow/status/dmotte/vagrant-vagrantbox/main.yml?branch=main&logo=github&label=main&style=flat-square)](https://github.com/dmotte/vagrant-vagrantbox/actions)
 [![Vagrant Cloud](https://img.shields.io/badge/vagrant-dmotte/vagrantbox-blue?logo=vagrant&style=flat-square)](https://app.vagrantup.com/dmotte/boxes/vagrantbox)
 
 :package: **Debian Vagrant box** with **Vagrant** and **VirtualBox** for nested virtualization.
