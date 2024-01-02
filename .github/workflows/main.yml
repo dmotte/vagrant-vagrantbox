@@ -20,10 +20,11 @@ jobs:
       # See https://github.com/actions/virtual-environments/issues/433 for more
       # information
       runs-on: macos-12
-      env: >
+      script: >
+        brew install coreutils;
         BOX_AUTHOR=dmotte BOX_NAME=vagrantbox
         BOX_DESCRIPTION='Debian Vagrant box with Vagrant and VirtualBox for
         nested virtualization (github.com/dmotte/vagrant-vagrantbox)'
-      path: $GITHUB_ACTION_PATH/../../scripts/cicd/vagrant-box.sh
+        bash "$(realpath "$GITHUB_ACTION_PATH/../../scripts/cicd/vagrant-box.sh")"
     secrets:
       secret01: ${{ secrets.VAGRANTCLOUD_TOKEN }}
