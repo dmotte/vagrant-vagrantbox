@@ -35,6 +35,7 @@ Vagrant.configure("2") do |config|
         apt-get update; apt-get install -y virtualbox-7.0
         # Note: a reboot is required before being able to use VirtualBox
 
+        # Ref: https://developer.hashicorp.com/vagrant/install#Linux
         fetch_and_check \
             'https://apt.releases.hashicorp.com/gpg' \
             'cafb01beac341bf2a9ba89793e6dd2468110291adfbb6c62ed11a0cde6c09029' | \
