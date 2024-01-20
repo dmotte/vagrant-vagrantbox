@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
             return 1; fi
         }
 
-        codename="$(grep VERSION_CODENAME /etc/os-release | cut -d= -f2)"
+        codename=$(grep VERSION_CODENAME /etc/os-release | cut -d= -f2)
 
         apt-get update; apt-get install -y curl gnupg linux-headers-generic
 
