@@ -12,8 +12,7 @@ Vagrant.configure("2") do |config|
     end
 
     config.vm.provision "shell", inline: <<-SHELL
-        # From: https://github.com/dmotte/misc/blob/main/scripts/fetch-and-check.sh
-        fetch_and_check() {
+        fetch_and_check() { # Src: https://github.com/dmotte/misc
             local c s; c=$(curl -fsSL "$1"; echo x) && \
             s=$(echo -n "${c%x}" | sha256sum | cut -d' ' -f1) && \
             if [ "$s" = "$2" ]; then echo -n "${c%x}"
