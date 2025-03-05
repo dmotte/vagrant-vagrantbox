@@ -20,29 +20,18 @@ Vagrant.configure("2") do |config|
             return 1; fi
         }
 
-        codename=$(grep VERSION_CODENAME /etc/os-release | cut -d= -f2)
+        apt-get update; apt-get install -y curl
 
-        apt-get update; apt-get install -y curl gnupg linux-headers-generic
+        script_apt_virtualbox=$(fetch_and_check \
+            https://raw.githubusercontent.com/dmotte/misc/main/scripts/provisioning/apt-virtualbox.sh \
+            992bf88ef4904005d083e67af36ddda4b6a853571510ec415fb3c98d8171cc22)
+        script_apt_vagrant=$(fetch_and_check \
+            https://raw.githubusercontent.com/dmotte/misc/main/scripts/provisioning/apt-vagrant.sh \
+            8d0d416a77bfe764c15cbce9d39ca53b9c14054cfc3a3083f31782750c491051)
 
-        fetch_and_check \
-            'https://www.virtualbox.org/download/oracle_vbox_2016.asc' \
-            '49e6801d45f6536232c11be6cdb43fa8e0198538d29d1075a7e10165e1fbafe2' |
-            gpg --dearmor -o /etc/apt/trusted.gpg.d/virtualbox.gpg
-        echo 'deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/virtualbox.gpg]' \
-            "https://download.virtualbox.org/virtualbox/debian $codename contrib" |
-            tee /etc/apt/sources.list.d/virtualbox.list
-        apt-get update; apt-get install -y virtualbox-7.0
-        # Note: a reboot is required before being able to use VirtualBox
-
-        # Ref: https://developer.hashicorp.com/vagrant/install#Linux
-        fetch_and_check \
-            'https://apt.releases.hashicorp.com/gpg' \
-            'cafb01beac341bf2a9ba89793e6dd2468110291adfbb6c62ed11a0cde6c09029' |
-            gpg --dearmor -o /etc/apt/trusted.gpg.d/hashicorp.gpg
-        echo 'deb [signed-by=/etc/apt/trusted.gpg.d/hashicorp.gpg]' \
-            "https://apt.releases.hashicorp.com $codename main" |
-            tee /etc/apt/sources.list.d/hashicorp.list
-        apt-get update; apt-get install -y vagrant
+        # Note that a reboot is required before being able to use VirtualBox
+        echo "$script_apt_virtualbox" | bash -s -- 7.0
+        echo "$script_apt_vagrant" | bash -s
     SHELL
 
     config.ssh.insert_key = false # This is usually recommended for base boxes
