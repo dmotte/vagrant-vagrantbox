@@ -14,17 +14,17 @@ concurrency:
 jobs:
   job:
     uses: dmotte/misc/.github/workflows/cicd-with-script.yml@main
-    with:
-      # We use this virtual environment because it supports nested
-      # virtualization.
-      # See https://github.com/actions/virtual-environments/issues/433 for more
-      # information
-      runs-on: macos-12
-      script: >
-        brew install coreutils;
-        BOX_AUTHOR=dmotte BOX_NAME=vagrantbox
-        BOX_DESCRIPTION='Debian Vagrant box with Vagrant and VirtualBox for
-        nested virtualization (github.com/dmotte/vagrant-vagrantbox)'
-        bash "$(realpath "$GITHUB_ACTION_PATH/../../scripts/cicd/vagrant-box.sh")"
-    secrets:
-      secret01: ${{ secrets.VAGRANTCLOUD_TOKEN }}
+    # with:
+    #   # We use this virtual environment because it supports nested
+    #   # virtualization.
+    #   # See https://github.com/actions/virtual-environments/issues/433 for more
+    #   # information
+    #   runs-on: macos-12
+    #   script: >
+    #     brew install coreutils;
+    #     BOX_AUTHOR=dmotte BOX_NAME=vagrantbox
+    #     BOX_DESCRIPTION='Debian Vagrant box with Vagrant and VirtualBox for
+    #     nested virtualization (github.com/dmotte/vagrant-vagrantbox)'
+    #     bash "$(realpath "$GITHUB_ACTION_PATH/../../scripts/cicd/vagrant-box.sh")"
+    # secrets:
+    #   secret01: ${{ secrets.VAGRANTCLOUD_TOKEN }}
